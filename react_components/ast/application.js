@@ -1,4 +1,5 @@
-var Application = React.createClass({displayName: 'Application',
+var Application = React.createClass({
+  displayName: 'Application',
   mixins: [NodeMixins],
   render: function() {
     var currentAST = this.currentAST();

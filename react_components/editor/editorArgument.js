@@ -1,4 +1,3 @@
-var helpers = require('./helpers');
 var React = require('react');
 
 var EditorArgument = React.createClass({

@@ -1,4 +1,4 @@
-var ASTTransformations = require("../ast_transformations") 
+var ASTTransformations = require("../../ast_transformations") 
 
 NodeMixins = {
   currentAST: function(){

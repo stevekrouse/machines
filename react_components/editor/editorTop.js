@@ -1,10 +1,9 @@
-var helpers = require('./helpers');
 var React = require('react');
-var EditorArgument = require('./EditorArgumentComponent');
+var EditorArgument = require('./editorArgument');
 var _ = require('underscore');
 
-var EditorName = React.createClass({
-  displayName: 'EditorName',
+var EditorTop = React.createClass({
+  displayName: 'EditorTop',
   getInitialState: function() {
     return {
       name: this.props.name,
@@ -34,11 +33,11 @@ var EditorName = React.createClass({
           size={this.state.name.length}
         />
         {this.state.arguments.map(function(argument){
-          return <EditorArgument argument={argument} />;
+          return <EditorArgument argument={argument} key={argument} />;
         })}
       </div>
     );
   }
 });
 
-module.exports = EditorName;
+module.exports = EditorTop;

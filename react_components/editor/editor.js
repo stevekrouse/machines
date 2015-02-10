@@ -1,7 +1,7 @@
-var helpers = require('./helpers');
+var helpers = require('../ast/helpers');
 var React = require('react');
-var EditorName = require('./EditorNameComponent');
-var EditorArgument = require('./EditorArgumentComponent');
+var EditorTop = require('./editorTop');
+var EditorArgument = require('./editorArgument');
 
 var Editor = React.createClass({
   displayName: 'Editor',
@@ -19,7 +19,7 @@ var Editor = React.createClass({
     };
     return(
       <div>
-        <EditorName 
+        <EditorTop
             name={this.state.name || "untitled"} 
             arguments={this.state.arguments || []} 
         />

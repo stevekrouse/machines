@@ -1,7 +1,7 @@
 var React = require('react');
-var NodeMixins = require('./Mixins');
+var NodeMixins = require('./mixins');
 var helpers = require('./helpers');
-var Branch = require('./BranchComponent')
+var Branch = require('./branch')
 
 var Branches = React.createClass({
   displayName: 'Branches',

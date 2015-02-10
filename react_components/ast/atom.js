@@ -1,5 +1,5 @@
 var React = require('react');
-var NodeMixins = require('./Mixins');
+var NodeMixins = require('./mixins');
 
 var Atom = React.createClass({
   displayName: 'Atom',

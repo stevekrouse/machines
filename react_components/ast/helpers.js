@@ -1,11 +1,11 @@
 var React = require('react');
-var ASTTransformations = require("../ast_transformations");
+var ASTTransformations = require("../../ast_transformations");
 
 var createNode = function (ast, id, key){
-  var Atom = require('./AtomComponent');
-  var List = require('./ListComponent');
-  var Branch = require('./BranchComponent');
-  var Branches = require('./BranchesComponent');
+  var Atom = require('./atom');
+  var List = require('./list');
+  var Branch = require('./branch');
+  var Branches = require('./branches');
   var currentAST = ASTTransformations.subtreeById(ast, id);
 
   // if (currentAST.type == "application") {
