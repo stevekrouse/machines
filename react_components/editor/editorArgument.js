@@ -26,7 +26,7 @@ var EditorArgument = React.createClass({
         style={styles}
         value={this.state.argument}
         onChange={this.handleChange}
-        size={this.state.argument.length}
+        size={this.state.argument.length || 1}
       />
     );
   }
