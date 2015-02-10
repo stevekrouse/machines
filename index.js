@@ -1,6 +1,6 @@
 var React = require('react');
 var uuid = require('node-uuid');
-var Editor = require('../react_components/editor/editor');
+var Editor = require('./react_components/editor/editor');
 
 function atom() {
 	return {
