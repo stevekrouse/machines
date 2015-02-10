@@ -1,20 +1,44 @@
 var helpers = require('./helpers');
+var React = require('react');
+var EditorArgument = require('./EditorArgumentComponent');
+var _ = require('underscore');
 
-var Editor = React.createClass({
-  displayName: 'Editor',
+var EditorName = React.createClass({
+  displayName: 'EditorName',
   getInitialState: function() {
     return {
-      name: this.props.name || "untitled",
-      arguments = this.props.arguments || [],
-      ast: this.props.ast, 
-      id: this.props.id
+      name: this.props.name,
+      arguments: this.props.arguments
     };
   },
+  handleChange: function (event) {
+    this.setState(_.extend(this.state, {name: event.target.value}));
+  },
   render: function() {
-    return 
-      <div>
-         <EditorName name={name} arguments={arguments} />
-         {helpers.createNode(this.props.ast, this.props.id, undefined)}
+    var topLineStyles = { 
+      backgroundColor: "black",
+    }
+    var nameStyles = {
+      color: "white",
+      fontFamily: "monospace", 
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      paddingLeft: 4,
+      border: 0
+    };
+    return(
+      <div style={topLineStyles}>
+        <input
+          style={nameStyles}
+          value={this.state.name}
+          onChange={this.handleChange}
+          size={this.state.name.length}
+        />
+        {this.state.arguments.map(function(argument){
+          return <EditorArgument argument={argument} />;
+        })}
       </div>
+    );
   }
 });
+
+module.exports = EditorName;

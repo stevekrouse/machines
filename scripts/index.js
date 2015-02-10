@@ -1,6 +1,6 @@
 var React = require('react');
 var uuid = require('node-uuid');
-var helpers = require('../react_components/helpers');
+var Editor = require('../react_components/EditorComponent');
 
 function atom() {
 	return {
@@ -47,5 +47,5 @@ branches = {
 
 ast = green_list; //branches;
 
-React.render(helpers.createNode(ast, ast.id, undefined),
+React.render(<Editor arguments={["hi", "there"]} ast={ast} id={ast.id} />,
 			document.body);
