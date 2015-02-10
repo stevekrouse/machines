@@ -1,0 +1,25 @@
+{
+  "name": "machines",
+  "version": "1.0.0",
+  "description": "A programming language built for understanding",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevekrouse/machines"
+  },
+  "keywords": [],
+  "author": "Stevie Krouse",
+  "devDependencies": {
+    "jsx-loader": "^0.12.2",
+    "react-hot-loader": "^1.1.1",
+    "webpack": "^1.5.1",
+    "webpack-dev-server": "1.6.4"
+  },
+  "dependencies": {
+    "node-uuid": "^1.4.2",
+    "react": "^0.12.0",
+    "underscore": "^1.7.0"
+  }
+}
