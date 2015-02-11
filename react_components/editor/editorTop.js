@@ -1,6 +1,6 @@
 var React = require('react');
 var EditorArgument = require('./editorArgument');
-var _ = require('underscore');
+var _ = require('lodash');
 
 var EditorTop = React.createClass({
   displayName: 'EditorTop',
