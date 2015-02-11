@@ -22,9 +22,12 @@ var Editor = React.createClass({
         <EditorTop
             name={this.state.name || "untitled"} 
             arguments={this.state.arguments || []} 
+            modifyState={this.props.modifyState}  
         />
-        <div style={bodyStyles}>
-          {helpers.createNode(this.props.ast, this.props.id, undefined)}
+        <div style={bodyStyles}
+             modifyState={this.props.modifyState}  
+        >
+          {helpers.createNode(this.props.ast, this.props.id, undefined, this.props.modifyState)}
         </div>
       </div>
     );

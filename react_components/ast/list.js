@@ -16,7 +16,7 @@ var List = React.createClass({
     items.push('(');
     for (var i=0; i<listItems.length; i++) {
       var listItem = listItems[i];
-      items.push(helpers.createNode(this.props.ast ,listItem.id , listItem.id));
+      items.push(helpers.createNode(this.props.ast ,listItem.id , listItem.id, this.props.modifyState));
       if (i<listItems.length-1) items.push('-');
     }
     items.push(')');

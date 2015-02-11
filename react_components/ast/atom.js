@@ -1,27 +1,26 @@
 var React = require('react');
 var NodeMixins = require('./mixins');
+var Main = require('../main');
+var _ = require('lodash');
 
 var Atom = React.createClass({
   displayName: 'Atom',
   mixins: [NodeMixins],
-  isEditing: function() {
-    return false;
-  },
-  getInitialState: function () {
-      return {value: this.currentAST().value, editing: false};
-  },
   handleFocus: function (event) {
-    this.setState({value: this.state.value, editing: true}, function() {
+    newState = _.extend(this.currentAST(), {editing: true})
+    this.props.modifyState(this.props.id, newState, function() {
       var node = this.getDOMNode().firstChild;
       node.focus();
-      node.setSelectionRange(this.state.value.length, this.state.value.length);
+      node.setSelectionRange(this.currentAST().value.length, this.currentAST().value.length);
     }.bind(this));
   },
   handleBlur: function (event) {
-    this.setState({value: this.state.value, editing: false});
+    newState = _.extend(this.currentAST(), {editing: false})
+    this.props.modifyState(this.props.id, newState)
   },
   handleChange: function (event) {
-    this.setState({value: event.target.value});
+    var newState = _.extend(this.currentAST(), {value: event.target.value});
+    this.props.modifyState(this.props.id, newState);
   },
   render: function() {
   	var styles = {
@@ -30,7 +29,7 @@ var Atom = React.createClass({
         border: 0,
         outline: "none",
         fontFamily: "monospace",
-        width: .65 * (this.state.value.length || 1) + "em",
+        width: .65 * (this.currentAST().value.length || 1) + "em",
         WebkitTouchCallout: "none",
         WebkitUserSelect: "none",
         KhtmlUserSelect: "none",
@@ -44,10 +43,10 @@ var Atom = React.createClass({
     return <span>
               <input
                 type="text"
-                value={this.state.value}
+                value={this.currentAST().value}
                 onChange={this.handleChange}
                 style={styles.display}
-                disabled={!this.state.editing}
+                disabled={!this.currentAST().editing}
                 onDoubleClick={this.handleFocus}
                 onBlur={this.handleBlur}
               >
